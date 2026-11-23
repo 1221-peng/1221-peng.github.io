@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    彭佳艺 · 个人简历网站
    设计系统：蓝色系三层（主蓝 / 深海军蓝 / 浅蓝底）+ 中性灰阶
    原则：留白优先，动效克制，只做必要的层次与反馈
@@ -797,4 +797,20 @@ body.is-locked { overflow: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
   .progress span { transition: none; }
+}
+
+/* ---------- 其他经历：渐变蓝底 ---------- */
+
+#experience {
+  background:
+    radial-gradient(1000px 520px at 78% -12%, #cfe3ff 0%, rgba(207, 227, 255, 0) 58%),
+    linear-gradient(180deg, #e9f2ff 0%, #f6faff 46%, #ffffff 80%);
+}
+
+/* 手机截图：相对「整张卡片」居中，而不是相对右侧正文列
+   （卡片有 56px 序号列 + gap，正文列是右移的，直接居中会左宽右窄） */
+@media (min-width: 861px) {
+  .card__body > .shots--phones {
+    margin-left: calc(-1 * (56px + clamp(18px, 3vw, 30px)));
+  }
 }
