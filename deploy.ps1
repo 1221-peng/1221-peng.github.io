@@ -53,9 +53,12 @@ if (Test-Port) {
 
 $gitArgs = @("-c", "http.sslBackend=openssl", "-c", "credential.helper=!gh auth git-credential") + $proxyArgs
 
-# 3. 推送（git 会把进度写到 stderr，这里合并捕获，避免误报成错误）
+# 3. 推送（git 的进度信息走 stderr；临时放开错误策略，避免被当成异常抛出）
+$prevEap = $ErrorActionPreference
+$ErrorActionPreference = "Continue"
 $pushOut  = & git @gitArgs push origin main 2>&1
 $pushCode = $LASTEXITCODE
+$ErrorActionPreference = $prevEap
 $pushOut | ForEach-Object { Write-Host ("  " + $_) -ForegroundColor DarkGray }
 
 if ($pushCode -ne 0) {
