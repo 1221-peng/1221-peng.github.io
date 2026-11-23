@@ -38,6 +38,29 @@ python -m http.server 8765
 - 访问：https://1221-peng.github.io/
 - 分支 `main` 的根目录即站点根目录，推送后自动构建
 
+### 一键发布
+
+改完内容后，在项目目录运行任意一个：
+
+```powershell
+.\deploy.cmd                                   # 双击也行，自动用时间当提交信息
+.\deploy.ps1 -Message "改了什么"                # 自定义提交信息
+```
+
+脚本会：检查改动 → 提交 → 检测本机代理（`127.0.0.1:7890`）→ 推送 → 提示构建。
+`github.com` 直连经常被阻断，所以脚本默认走本机代理；代理没开时会提示。
+
+### 手工发布（等价）
+
+```powershell
+git add -A
+git commit -m "改了什么"
+git push origin main
+```
+
+本仓库已固化三项配置，换终端也不用重设：`http.sslBackend=openssl`（规避 Windows schannel 报错）、
+`credential.helper=!gh auth git-credential`（用 gh 的登录态）、`http.proxy=127.0.0.1:7890`。
+
 ## 内容说明
 
 项目里的数字均来自真实产物或云端记录（PRD 版本、验收标准条数、云函数检查记录、截图数量等）。
