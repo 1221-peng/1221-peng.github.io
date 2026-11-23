@@ -53,9 +53,12 @@ if (Test-Port) {
 
 $gitArgs = @("-c", "http.sslBackend=openssl", "-c", "credential.helper=!gh auth git-credential") + $proxyArgs
 
-# 3. 推送
-& git @gitArgs push origin main
-if ($LASTEXITCODE -ne 0) {
+# 3. 推送（git 会把进度写到 stderr，这里合并捕获，避免误报成错误）
+$pushOut  = & git @gitArgs push origin main 2>&1
+$pushCode = $LASTEXITCODE
+$pushOut | ForEach-Object { Write-Host ("  " + $_) -ForegroundColor DarkGray }
+
+if ($pushCode -ne 0) {
   Write-Host ""
   Write-Host "推送失败。常见原因：" -ForegroundColor Yellow
   Write-Host "  · github.com 被阻断，且本机代理未开启（默认检测 127.0.0.1:7890）"
@@ -64,3 +67,4 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 Write-Host "已推送。GitHub Pages 约 30–60 秒后完成构建：https://1221-peng.github.io/"
+exit 0
