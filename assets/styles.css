@@ -151,6 +151,7 @@ p { margin: 0; }
   letter-spacing: -0.008em;
   color: var(--ink);
   margin-bottom: 18px;
+  text-wrap: balance;
 }
 .hero__meta {
   font-size: 14px;
