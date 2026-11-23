@@ -320,6 +320,37 @@ p { margin: 0; }
   color: var(--ink-3);
 }
 
+/* ---------- 项目截图 ---------- */
+
+.shots { margin: 34px 0 0; }
+.shots .grid { display: grid; gap: 16px; }
+.shots--browser .grid { grid-template-columns: minmax(0, 1fr); }
+.shots--phones .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 560px; }
+.shots--film .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+
+.shot {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.shot img { display: block; width: 100%; height: auto; }
+
+/* 手机截图：去掉边框，用极轻的投影做成「产品图」 */
+.shots--phones .shot {
+  border: 0;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 10px 26px rgba(0, 0, 0, 0.07);
+}
+
+.shots figcaption {
+  margin-top: 16px;
+  font-size: 12.5px;
+  line-height: 1.72;
+  color: var(--ink-3);
+  max-width: 74ch;
+}
+
 /* ---------- 其他经历 ---------- */
 
 .rows { border-top: 1px solid var(--line); }
@@ -439,6 +470,8 @@ p { margin: 0; }
   .edu { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .honors li { grid-template-columns: 52px minmax(0, 1fr); row-gap: 4px; }
   .honors__prize { grid-column: 2; }
+  .shots--browser .grid { grid-template-columns: minmax(0, 1fr); }
+  .shots--film .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 560px) {

@@ -10,11 +10,17 @@
 ## 目录
 
 ```
-index.html          页面结构
-assets/styles.css   样式（设计变量集中在 :root）
-assets/script.js    入场动画 + 导航高亮
-assets/portrait.jpg 证件照（4:5，760×950，70 KB）
-assets/favicon.svg  站点图标
+index.html             页面结构
+assets/styles.css      样式（设计变量集中在 :root）
+assets/script.js       入场动画 + 导航高亮
+assets/portrait.jpg    证件照（4:5，760×950，70 KB）
+assets/favicon.svg     站点图标
+assets/shots/          项目截图（8 张，合计约 600 KB，均做了裁切与压缩）
+  crm-customers.jpg      CRM 客户库：AI 匹配度评分表
+  crm-campaign.jpg       CRM 营销活动：逐封草稿审核
+  radar-home.jpg         竞品雷达首页：今日检查 / 有更新 / 异常
+  radar-fail.jpg         竞品雷达详情：失败时保留上次成功内容
+  film-01..04.jpg        苏轼短片分镜 S01 / S03 / S07 / S09
 ```
 
 ## 本地预览
