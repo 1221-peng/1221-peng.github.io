@@ -218,6 +218,7 @@ p { margin: 0; }
   letter-spacing: -0.008em;
   color: var(--ink);
 }
+.about__text--sub { margin-top: 20px; color: var(--ink-2); }
 
 /* 教育背景：三条极简信息 */
 .edu {
