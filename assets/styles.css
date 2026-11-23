@@ -653,27 +653,16 @@ p { margin: 0; }
 }
 
 /* =========================================================
-   编辑式升级：衬线标题 / 时间轴 / 分栏与封面卡 / 图注标签
-   / 阅读进度 / 图片灯箱 / 复制邮箱
+   编辑式升级：分栏与封面卡 / 图注标签 / 阅读进度
+   / 图片灯箱 / 复制邮箱
    ========================================================= */
 
 :root {
-  --font-display: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC",
-    "SimSun", "STSong", Georgia, serif;
   --card-pad: clamp(26px, 3.6vw, 44px);
 }
 
-/* ---------- 衬线标题 ---------- */
-
-.hero__name,
-.section__head h2,
-.contact__title {
-  font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-.hero__name { letter-spacing: 0.01em; }
-.section__head h2 { letter-spacing: 0; }
+/* 时间轴移除后，项目区标题与首张卡片之间补一点呼吸 */
+#work .section__head { margin-bottom: clamp(38px, 5vw, 66px); }
 
 /* ---------- 阅读进度 ---------- */
 
@@ -685,38 +674,6 @@ p { margin: 0; }
   display: block; height: 100%; width: 0;
   background: linear-gradient(90deg, var(--blue) 0%, #5aa2ff 100%);
   transition: width 0.08s linear;
-}
-
-/* ---------- 时间轴 ---------- */
-
-.timeline {
-  list-style: none;
-  margin: 0 0 clamp(30px, 4vw, 46px);
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  border-top: 1px solid var(--line-2, #dbe2ee);
-}
-.timeline li { position: relative; padding: 22px 18px 0 0; }
-.timeline li::before {
-  content: "";
-  position: absolute; top: -4.5px; left: 0;
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--tint-1);
-  border: 2px solid var(--blue);
-}
-.timeline__date {
-  display: block;
-  font-size: 12.5px; font-weight: 600;
-  color: var(--blue-strong);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.02em;
-}
-.timeline__label {
-  margin-top: 6px;
-  font-size: 13.5px;
-  line-height: 1.62;
-  color: var(--ink-2);
 }
 
 /* ---------- 卡片：分栏版（01）---------- */
@@ -829,19 +786,6 @@ body.is-locked { overflow: hidden; }
   .card--split .card__aside { margin-top: 22px; }
   .metrics--stack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .note--plain { margin-top: 14px; }
-}
-
-@media (max-width: 720px) {
-  .timeline {
-    grid-template-columns: minmax(0, 1fr);
-    border-top: 0;
-    border-left: 1px solid var(--line-2, #dbe2ee);
-    margin-left: 7px;
-    padding-left: 0;
-  }
-  .timeline li { padding: 0 0 20px 20px; }
-  .timeline li:last-child { padding-bottom: 0; }
-  .timeline li::before { top: 5px; left: -5px; }
 }
 
 @media (max-width: 560px) {
