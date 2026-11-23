@@ -129,28 +129,28 @@ p { margin: 0; }
 /* ---------- Hero ---------- */
 
 .hero {
-  padding: calc(var(--nav-h) + clamp(48px, 9vw, 96px)) 0 clamp(56px, 8vw, 96px);
+  padding: calc(var(--nav-h) + clamp(44px, 7vw, 84px)) 0 clamp(48px, 7vw, 84px);
 }
 .hero__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 380px);
-  gap: clamp(32px, 6vw, 80px);
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 288px);
+  gap: clamp(32px, 5vw, 64px);
   align-items: center;
 }
 
 .hero__name {
-  font-size: clamp(52px, 8vw, 92px);
+  font-size: clamp(38px, 5.2vw, 62px);
   font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 1.02;
-  margin: 0 0 20px;
+  letter-spacing: -0.03em;
+  line-height: 1.06;
+  margin: 0 0 16px;
 }
 .hero__lead {
-  font-size: clamp(20px, 2.5vw, 27px);
-  line-height: 1.55;
-  letter-spacing: -0.01em;
+  font-size: clamp(17px, 1.9vw, 21px);
+  line-height: 1.62;
+  letter-spacing: -0.008em;
   color: var(--ink);
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 .hero__meta {
   font-size: 14px;
@@ -312,12 +312,14 @@ p { margin: 0; }
 .metric__k { font-size: 12px; color: var(--ink-3); letter-spacing: 0.02em; }
 
 .note {
-  margin-top: 22px;
-  padding-left: 14px;
-  border-left: 2px solid var(--line);
-  font-size: 13px;
-  line-height: 1.7;
+  margin-top: 20px;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--line-soft);
+  font-size: 12.5px;
+  line-height: 1.75;
   color: var(--ink-3);
+  max-width: 680px;
+  text-wrap: pretty;
 }
 
 /* ---------- 项目截图 ---------- */
@@ -345,10 +347,12 @@ p { margin: 0; }
 
 .shots figcaption {
   margin-top: 16px;
-  font-size: 12.5px;
+  font-size: 13px;
   line-height: 1.72;
-  color: var(--ink-3);
-  max-width: 74ch;
+  letter-spacing: 0.005em;
+  color: var(--ink-2);
+  max-width: 680px;
+  text-wrap: pretty;
 }
 .shots--phones figcaption { max-width: 540px; margin-inline: auto; }
 
@@ -377,16 +381,23 @@ p { margin: 0; }
 .honors { list-style: none; margin: 0; padding: 0; }
 .honors li {
   display: grid;
-  grid-template-columns: 72px minmax(0, 1fr) auto;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
   gap: 20px;
-  align-items: baseline;
-  padding: 24px 0;
+  align-items: start;
+  padding: 26px 0;
   border-top: 1px solid var(--line);
 }
 .honors li:last-child { border-bottom: 1px solid var(--line); }
-.honors__year { font-size: 13px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
-.honors__name { font-size: 17px; font-weight: 500; letter-spacing: -0.01em; }
-.honors__prize { font-size: 14px; color: var(--blue); }
+.honors__year {
+  font-size: 13px; color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  padding-top: 3px;
+}
+.honors__main { display: flex; flex-direction: column; gap: 8px; }
+.honors__name { font-size: 17px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.45; }
+.honors__desc { font-size: 14.5px; line-height: 1.72; color: var(--ink-2); max-width: 760px; text-wrap: pretty; }
+.honors__prize { font-size: 14px; color: var(--blue); white-space: nowrap; padding-top: 2px; }
 
 /* ---------- 技能 ---------- */
 
@@ -469,7 +480,7 @@ p { margin: 0; }
   .row__year { padding-top: 0; }
   .skills { grid-template-columns: minmax(0, 1fr); }
   .edu { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .honors li { grid-template-columns: 52px minmax(0, 1fr); row-gap: 4px; }
+  .honors li { grid-template-columns: 52px minmax(0, 1fr); row-gap: 6px; }
   .honors__prize { grid-column: 2; }
   .shots--browser .grid { grid-template-columns: minmax(0, 1fr); }
   .shots--film .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
