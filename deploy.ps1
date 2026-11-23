@@ -14,7 +14,8 @@ param(
   [string]$Message = ""
 )
 
-$ErrorActionPreference = "Stop"
+# 注意：不用 Stop —— git 会把进度/换行警告写到 stderr，Stop 会误判为失败
+$ErrorActionPreference = "Continue"
 Set-Location $PSScriptRoot
 
 function Test-Port([string]$Address = "127.0.0.1", [int]$Port = 7890, [int]$TimeoutMs = 600) {
@@ -32,11 +33,15 @@ function Test-Port([string]$Address = "127.0.0.1", [int]$Port = 7890, [int]$Time
 }
 
 # 1. 提交
-$changes = git status --porcelain
+$changes = git status --porcelain 2>$null
 if ($changes) {
   if (-not $Message) { $Message = "更新内容 " + (Get-Date -Format "yyyy-MM-dd HH:mm") }
-  git add -A
-  git -c user.name="彭佳艺" -c user.email="pengjiayi2929@163.com" commit -q -m $Message
+  $null = git add -A 2>&1
+  $null = git -c user.name="彭佳艺" -c user.email="pengjiayi2929@163.com" commit -q -m $Message 2>&1
+  if ($LASTEXITCODE -ne 0) {
+    Write-Host "提交失败，已中止。" -ForegroundColor Yellow
+    exit 1
+  }
   Write-Host "已提交：$Message"
 } else {
   Write-Host "没有文件改动。"
@@ -53,12 +58,9 @@ if (Test-Port) {
 
 $gitArgs = @("-c", "http.sslBackend=openssl", "-c", "credential.helper=!gh auth git-credential") + $proxyArgs
 
-# 3. 推送（git 的进度信息走 stderr；临时放开错误策略，避免被当成异常抛出）
-$prevEap = $ErrorActionPreference
-$ErrorActionPreference = "Continue"
+# 3. 推送
 $pushOut  = & git @gitArgs push origin main 2>&1
 $pushCode = $LASTEXITCODE
-$ErrorActionPreference = $prevEap
 $pushOut | ForEach-Object { Write-Host ("  " + $_) -ForegroundColor DarkGray }
 
 if ($pushCode -ne 0) {

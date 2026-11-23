@@ -20,6 +20,7 @@
 <body>
 
 <a class="skip" href="#main">跳到主要内容</a>
+<div class="progress" aria-hidden="true"><span></span></div>
 
 <header class="nav" id="nav">
   <div class="nav__inner">
@@ -116,42 +117,71 @@
         </p>
       </header>
 
+      <ol class="timeline" data-reveal>
+        <li>
+          <span class="timeline__date">10.28</span>
+          <p class="timeline__label">装好工具，跑通云开发授权</p>
+        </li>
+        <li>
+          <span class="timeline__date">11.05</span>
+          <p class="timeline__label">四组数据采集，230 条 SKU</p>
+        </li>
+        <li>
+          <span class="timeline__date">11.11</span>
+          <p class="timeline__label">CRM 需求文档写到 v0.5</p>
+        </li>
+        <li>
+          <span class="timeline__date">11.20</span>
+          <p class="timeline__label">竞品雷达 4 个云函数上线</p>
+        </li>
+        <li>
+          <span class="timeline__date">11.23</span>
+          <p class="timeline__label">安全审计，修掉生产环境后门</p>
+        </li>
+      </ol>
+
       <!-- 01 -->
-      <article class="card" data-reveal>
+      <article class="card card--split" data-reveal>
         <div class="card__index">01</div>
         <div class="card__body">
-          <div class="card__titles">
-            <h3>AI 海外拓客客户管理系统</h3>
-            <span class="tag">产品负责人 · 独立完成设计</span>
-          </div>
-          <p class="card__lead">
-            面向工业品出口的 B2B 智能获客系统。市面上的工具大多只给一张提单清单，
-            这套系统先按需求匹配度筛一遍，再决定对谁开口。
-          </p>
-          <ul class="list">
-            <li>独立完成产品需求文档从 v0.1 迭代到 v0.5：<strong>14 个页面</strong>、24 条业务规则、9 类异常处理、<strong>50 条可执行验收标准</strong>、老板 / 主管 / 销售三级权限。</li>
-            <li>设计「AI 评分 + 人工复核」机制：输出 0–100 分匹配度并附评分理由，AI 判定约九成，不确定的少量样本转人工队列。</li>
-            <li>与 AI 协作完成 Next.js + Supabase 全栈原型，在 320 / 375 / 768 / 1024 / 1440 <strong>五档断点</strong>逐页验收，留下 30 余张界面截图与数据库连通验证。</li>
-            <li>另写 634 行技术设计文档（24 张表、三层鉴权、19 条链路规则）；走读时自查出 3 处表结构缺口并回填。</li>
-          </ul>
-          <div class="metrics">
-            <div class="metric"><span class="metric__v">14</span><span class="metric__k">个页面</span></div>
-            <div class="metric"><span class="metric__v">24</span><span class="metric__k">条业务规则</span></div>
-            <div class="metric"><span class="metric__v">50</span><span class="metric__k">条验收标准</span></div>
-            <div class="metric"><span class="metric__v">5</span><span class="metric__k">档断点</span></div>
+          <div class="card__main">
+            <div class="card__titles">
+              <h3>AI 海外拓客客户管理系统</h3>
+              <span class="tag">产品负责人 · 独立完成设计</span>
+            </div>
+            <p class="card__lead">
+              面向工业品出口的 B2B 智能获客系统。市面上的工具大多只给一张提单清单，
+              这套系统先按需求匹配度筛一遍，再决定对谁开口。
+            </p>
+            <ul class="list">
+              <li>独立完成产品需求文档从 v0.1 迭代到 v0.5：<strong>14 个页面</strong>、24 条业务规则、9 类异常处理、<strong>50 条可执行验收标准</strong>、老板 / 主管 / 销售三级权限。</li>
+              <li>设计「AI 评分 + 人工复核」机制：输出 0–100 分匹配度并附评分理由，AI 判定约九成，不确定的少量样本转人工队列。</li>
+              <li>与 AI 协作完成 Next.js + Supabase 全栈原型，在 320 / 375 / 768 / 1024 / 1440 <strong>五档断点</strong>逐页验收，留下 30 余张界面截图与数据库连通验证。</li>
+              <li>另写 634 行技术设计文档（24 张表、三层鉴权、19 条链路规则）；走读时自查出 3 处表结构缺口并回填。</li>
+            </ul>
           </div>
 
-          <p class="note">说明：原型可点选演示；邮件与外部数据源以人工代替，未接入真实服务。</p>
+          <aside class="card__aside">
+            <div class="metrics metrics--stack">
+              <div class="metric"><span class="metric__v">14</span><span class="metric__k">个页面</span></div>
+              <div class="metric"><span class="metric__v">24</span><span class="metric__k">条业务规则</span></div>
+              <div class="metric"><span class="metric__v">50</span><span class="metric__k">条验收标准</span></div>
+              <div class="metric"><span class="metric__v">5</span><span class="metric__k">档断点</span></div>
+            </div>
+            <p class="note note--plain">原型可点选演示；邮件与外部数据源以人工代替，未接入真实服务。</p>
+          </aside>
 
           <figure class="shots shots--browser">
             <div class="grid">
               <div class="shot">
                 <img src="assets/shots/crm-customers.jpg" width="1200" height="750" loading="lazy" decoding="async"
                      alt="客户库页面：企业按 AI 匹配度评分排序，分数从 92 到 43">
+                <span class="anno">① 匹配度 92 → 43</span>
               </div>
               <div class="shot">
                 <img src="assets/shots/crm-campaign.jpg" width="1200" height="750" loading="lazy" decoding="async"
                      alt="营销活动页面：每封草稿逐条审核，提供通过、编辑、拒绝三个操作">
+                <span class="anno">② 逐封审核</span>
               </div>
             </div>
             <figcaption>上：客户库按 AI 匹配度排序（92 → 43 分）；下：营销活动逐封草稿审核。</figcaption>
@@ -171,6 +201,22 @@
             一个人盯 3–5 个竞品官网时，最容易漏掉的是价格页和公告栏的改动。
             这个工具把「每天手翻五个页面」变成「每天一条汇总，有变化才点进去」。
           </p>
+
+          <figure class="shots shots--phones">
+            <div class="grid">
+              <div class="shot">
+                <img src="assets/shots/radar-home.jpg" width="522" height="1130" loading="lazy" decoding="async"
+                     alt="小程序首页：今日检查 6、有更新 1、当前异常 2，按目标列出最近一次检查结果">
+                <span class="anno">③ 检查 6 · 异常 2</span>
+              </div>
+              <div class="shot">
+                <img src="assets/shots/radar-preview.jpg" width="522" height="1130" loading="lazy" decoding="async"
+                     alt="内容预览页：从竞品网站实际提取的 1987 字正文，含产品与定价信息">
+                <span class="anno">④ 抓到 1987 字</span>
+              </div>
+            </div>
+          </figure>
+
           <ul class="list">
             <li>输出需求、技术、任务三份文档：12 条验收标准、8 种状态；把「未完成≠失败、失败≠无变化、失败不覆盖成功快照」定为三条硬规则——避免抓取失败被误报成「没变化」。</li>
             <li>4 个云函数分工：统一接口、每 10 分钟定时领取任务、单目标抓取与差异比对、每日 09:00 固定模板汇总；8 个集合配行级权限，前端不可直接写库。</li>
@@ -184,25 +230,22 @@
             <div class="metric"><span class="metric__v">7</span><span class="metric__k">条审计问题</span></div>
           </div>
 
-          <p class="note">说明：已在开发者工具与自动化环境验证；云函数已部署，小程序未对外发布。</p>
-
-          <figure class="shots shots--phones">
-            <div class="grid">
-              <div class="shot">
-                <img src="assets/shots/radar-home.jpg" width="522" height="1130" loading="lazy" decoding="async"
-                     alt="小程序首页：今日检查 6、有更新 1、当前异常 2，按目标列出最近一次检查结果">
-              </div>
-              <div class="shot">
-                <img src="assets/shots/radar-preview.jpg" width="522" height="1130" loading="lazy" decoding="async"
-                     alt="内容预览页：从竞品网站实际提取的 1987 字正文，含产品与定价信息">
-              </div>
-            </div>
-          </figure>
+          <p class="note">已在开发者工具与自动化环境验证；云函数已部署，小程序未对外发布。</p>
         </div>
       </article>
 
       <!-- 03 -->
-      <article class="card" data-reveal>
+      <article class="card card--cover" data-reveal>
+        <figure class="shots shots--film shots--bleed">
+          <div class="grid">
+            <div class="shot"><img src="assets/shots/film-01.jpg" width="720" height="1080" loading="lazy" decoding="async" alt="分镜 S01 出生：少年苏轼背影走上石阶"><span class="anno anno--film">S01</span></div>
+            <div class="shot"><img src="assets/shots/film-02.jpg" width="720" height="1080" loading="lazy" decoding="async" alt="分镜 S03 礼部登科：身着圆领袍的苏轼站在榜前"><span class="anno anno--film">S03</span></div>
+            <div class="shot"><img src="assets/shots/film-03.jpg" width="720" height="1080" loading="lazy" decoding="async" alt="分镜 S07 黄州东坡：苏轼在江边坡地挥锄"><span class="anno anno--film">S07</span></div>
+            <div class="shot"><img src="assets/shots/film-04.jpg" width="720" height="1080" loading="lazy" decoding="async" alt="分镜 S09 儋州渡海：苏轼立于海上船头"><span class="anno anno--film">S09</span></div>
+          </div>
+          <figcaption>苏轼短片分镜：出生、登科、黄州、渡海。S03 为三轮重做后的版本。</figcaption>
+        </figure>
+
         <div class="card__index">03</div>
         <div class="card__body">
           <div class="card__titles">
@@ -226,17 +269,7 @@
             <div class="metric"><span class="metric__v">360</span><span class="metric__k">帧 MV 成片</span></div>
           </div>
 
-          <p class="note">说明：10 段素材已生成，未合成最终成片；MV 与带货样片已成片。</p>
-
-          <figure class="shots shots--film">
-            <div class="grid">
-              <div class="shot"><img src="assets/shots/film-01.jpg" width="720" height="1080" loading="lazy" decoding="async" alt="分镜 S01 出生：少年苏轼背影走上石阶"></div>
-              <div class="shot"><img src="assets/shots/film-02.jpg" width="720" height="1080" loading="lazy" decoding="async" alt="分镜 S03 礼部登科：身着圆领袍的苏轼站在榜前"></div>
-              <div class="shot"><img src="assets/shots/film-03.jpg" width="720" height="1080" loading="lazy" decoding="async" alt="分镜 S07 黄州东坡：苏轼在江边坡地挥锄"></div>
-              <div class="shot"><img src="assets/shots/film-04.jpg" width="720" height="1080" loading="lazy" decoding="async" alt="分镜 S09 儋州渡海：苏轼立于海上船头"></div>
-            </div>
-            <figcaption>苏轼短片分镜：出生、登科、黄州、渡海。S03 为三轮重做后的版本。</figcaption>
-          </figure>
+          <p class="note">10 段素材已生成，未合成最终成片；MV 与带货样片已成片。</p>
         </div>
       </article>
     </div>
@@ -344,7 +377,12 @@
         <p class="eyebrow" data-reveal>联系</p>
         <h2 class="contact__title" data-reveal data-delay="1">需要一个把需求写成清单，<br class="br-desktop">再把清单做成东西的人吗？</h2>
         <div class="contact__links" data-reveal data-delay="2">
-          <a class="contact__mail" href="mailto:pengjiayi2929@163.com">pengjiayi2929@163.com</a>
+          <div class="contact__row">
+            <a class="contact__mail" href="mailto:pengjiayi2929@163.com">pengjiayi2929@163.com</a>
+            <button class="copy" type="button" data-copy="pengjiayi2929@163.com" aria-label="复制邮箱地址">
+              <span class="copy__text">复制</span>
+            </button>
+          </div>
           <div class="contact__meta">
             <a href="tel:+8618788927921">187 8892 7921</a>
             <span class="dot" aria-hidden="true">·</span>
@@ -363,6 +401,11 @@
     <span>本站为手写 HTML / CSS，部署于 GitHub Pages</span>
   </div>
 </footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="查看大图" hidden>
+  <button class="lightbox__close" type="button" aria-label="关闭">×</button>
+  <img class="lightbox__img" alt="">
+</div>
 
 <script src="assets/script.js" defer></script>
 </body>
