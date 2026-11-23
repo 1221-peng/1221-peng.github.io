@@ -86,6 +86,9 @@ p { margin: 0; }
   text-transform: uppercase;
 }
 
+/* 避免「两亿会员」这类词组在中文字符间被拆行 */
+.nb { white-space: nowrap; }
+
 .section__head { max-width: 760px; margin-bottom: clamp(36px, 5vw, 60px); }
 .section__head h2 {
   font-size: clamp(30px, 4.6vw, 48px);
