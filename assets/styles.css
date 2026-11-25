@@ -814,3 +814,17 @@ body.is-locked { overflow: hidden; }
     margin-left: calc(-1 * (56px + clamp(18px, 3vw, 30px)));
   }
 }
+
+/* ---------- 双图图注：两列分别对齐左右两张截图 ---------- */
+
+.shots--phones figcaption.cap-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 14px;
+}
+.shots--phones figcaption.cap-split span {
+  font-size: 13px;
+  line-height: 1.72;
+  color: var(--ink-2);
+}
